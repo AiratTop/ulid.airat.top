@@ -1,5 +1,7 @@
 # ulid.airat.top
 
+[![ulid.airat.top](https://raw.githubusercontent.com/AiratTop/ulid.airat.top/main/public_html/screenshot.png)](https://ulid.airat.top/)
+
 Static, privacy-first ULID generator that runs fully in the browser. Deployed as static assets on Cloudflare Workers.
 
 - Live site: https://ulid.airat.top
