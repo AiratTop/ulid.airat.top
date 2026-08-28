@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ulid.airat.top | ULID Generator</title>
+    <meta
+      name="description"
+      content="Generate secure, time-sortable ULIDs locally in your browser, one or in batches from 1 to 10,000. Private, fast, and offline-friendly."
+    />
+    <meta
+      name="keywords"
+      content="ulid generator, monotonic ulid, sortable identifier, ulid list generator, crockford base32, offline, local, airattop"
+    />
+    <meta name="author" content="AiratTop" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ulid.airat.top/" />
+    <meta property="og:title" content="ULID.airat.top" />
+    <meta
+      property="og:description"
+      content="Generate secure, time-sortable ULIDs locally in your browser, one or in batches from 1 to 10,000."
+    />
+    <meta property="og:image" content="https://ulid.airat.top/android-chrome-512x512.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:title" content="ULID.airat.top" />
+    <meta
+      property="twitter:description"
+      content="Generate secure, time-sortable ULIDs locally in your browser, one or in batches from 1 to 10,000."
+    />
+    <meta property="twitter:image" content="https://ulid.airat.top/android-chrome-512x512.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <meta name="msvalidate.01" content="A4ADBC8E0D3C862E117640B06AC788E3" />
+    <meta name="google-site-verification" content="zuHpP1sB8u4uv7gVtMj2RNaGCoxq2lGMYENOCMovy1Y" />
+    <meta name="p:domain_verify" content="ebe9e31b6c3867c499c054b525b7a05e"/>
+    <meta name="facebook-domain-verification" content="h0t2dxdbzfct051ont9681iad4z59x" />
+    <link rel="canonical" href="https://ulid.airat.top/" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <link rel="stylesheet" href="styles.css" />
+    <!-- GoogleAnalytics counter -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVEGGNPJXK"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-CVEGGNPJXK');
+    </script>
+    <!-- /GoogleAnalytics counter -->
+  </head>
+  <body>
+    <div class="bg-glow" aria-hidden="true"></div>
+
+    <main class="shell">
+      <header class="brand">
+        <div class="brand-copy">
+          <p class="brand-eyebrow">ulid.airat.top</p>
+          <h1>ULID Generator</h1>
+          <p class="brand-subtitle">
+            Offline-friendly. Instant copy. Zero value history. Open-source. Privacy-first.
+            Generate secure, time-sortable ULIDs: one value or up to 10,000 in one click.
+          </p>
+        </div>
+        <div class="brand-actions">
+          <button class="repo-link reset-button" id="resetDefaults" type="button">Reset defaults</button>
+          <a class="repo-link" href="https://github.com/AiratTop/ulid.airat.top" target="_blank" rel="noreferrer">
+            GitHub
+          </a>
+        </div>
+      </header>
+
+      <section class="panel is-active" id="panel-ulid" role="region" aria-label="ULID generator">
+        <div class="output" id="ulidOutputWrap" title="Click to copy generated ULIDs">
+          <div class="output-value output-value--ulid is-single" id="ulidOutput" aria-live="polite"></div>
+        </div>
+        <div class="action-row action-row--ulid">
+          <button class="action-button primary" type="button" id="ulidCopy">
+            <span class="btn-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M16 1H6a2 2 0 0 0-2 2v12h2V3h10V1Zm3 4H10a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Zm0 16H10V7h9v14Z"
+                />
+              </svg>
+            </span>
+            Copy ULIDs
+          </button>
+          <button class="action-button secondary" type="button" id="ulidRefresh">
+            <span class="btn-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M20 12a8 8 0 0 1-14.31 4.9l-1.69 1.69V14h4.6l-1.61 1.61A6 6 0 1 0 12 6c-1.24 0-2.41.38-3.39 1.03L7.16 5.58A7.94 7.94 0 0 1 12 4a8 8 0 0 1 8 8Z"
+                />
+              </svg>
+            </span>
+            Regenerate ULIDs
+          </button>
+          <button class="action-button secondary" type="button" id="ulidDownload">
+            <span class="btn-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M11 3h2v9.17l2.59-2.58L17 11l-5 5-5-5 1.41-1.41L11 12.17V3Zm-7 15h16v3H4v-3Z"
+                />
+              </svg>
+            </span>
+            Download .txt
+          </button>
+        </div>
+        <p class="status" id="ulidStatus" role="status"></p>
+        <div class="settings-strip" aria-label="Generator settings">
+          <label class="field field--center ulid-count-field">
+            <span>Count (1-10,000)</span>
+            <input type="number" id="ulidCount" min="1" max="10000" value="1" inputmode="numeric" />
+            <small>Generates one monotonic ULID per line for quick paste into tables.</small>
+          </label>
+        </div>
+      </section>
+
+      <footer class="doc-footer">
+        <p>
+          © 2026
+          <a href="https://airat.top" target="_blank" rel="author">Airat.Top</a>
+          |
+          <a href="https://github.com/AiratTop/ulid.airat.top" target="_blank" rel="noreferrer">GitHub</a>
+          |
+          <a href="https://privacy.airat.top" target="_blank" rel="noreferrer privacy-policy">Privacy</a>
+          |
+          <a href="https://terms.airat.top" target="_blank" rel="noreferrer terms-of-service">Terms</a>
+        </p>
+      </footer>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

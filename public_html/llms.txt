@@ -1,0 +1,24 @@
+# ulid.airat.top
+
+Summary:
+ULID.airat.top is a static, privacy-first ULID generator with single and batch output from 1 to 10,000 values. Everything runs locally in the browser using secure randomness.
+
+Primary URL:
+https://ulid.airat.top
+
+Key features:
+- Canonical 26-character ULID generation using Crockford Base32.
+- A 48-bit millisecond timestamp and 80 bits of secure randomness.
+- Monotonic generation for correctly sorted values created in the same millisecond.
+- Batch output from 1 to 10,000 values.
+- One-click copy, regenerate, and TXT download actions.
+- Local settings persistence for the selected count.
+
+Tech stack:
+HTML, CSS, and vanilla JavaScript.
+
+Privacy:
+Generated ULIDs stay in the browser and are never stored or sent to a backend. Only the selected count is stored locally.
+
+Contact:
+AiratTop - mail@airat.top
